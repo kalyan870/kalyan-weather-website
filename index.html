@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ 1"/>
+  <title>Kalyan Live Weather</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <button id="themeToggle">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <div class="container">
+    <h1>Kalyan Live Weather</h1>
+
+    <div class="location-selector">
+      <input type="text" id="city" placeholder="City" />
+      />
+      <input type="text" id="district" placeholder="District" />
+      <input type="text" id="state" placeholder="State"      />
+      <select id="country"><option value="IN">India</option></select>
+      <button class="search-btn" onclick="searchFlexibleLocation()">Search</button>
+    </div>
+
+    <div class="or-text">— OR —</div>
+    <div class="location-btn" onclick="getLocationWeather()">Use My Location</div>
+
+    <div id="loading" class="loading hidden">Loading weather...</div>
+
+    <div class="weather-info hidden" id="weatherInfo">
+      <div id="currentIcon"></div>
+      <div class="temp" id="temp">-</div>
+      <div id="minMax"></div>
+      <div class="description" id="description">-</div>
+      <div class="location" id="location">-</div>
+      <div id="uvBadge"></div>
+      <div id="aqiBadge" style="margin:10px 0;"></div>
+
+      <div class="details">
+        <div><i class="fas fa-tint"></i><br><span id="humidity">-</span>%</div>
+        <div><i class="fas fa-wind"></i><br><span id="wind">-</span> m/s</div>
+        <div><i class="fas fa-eye"></i><br><span id="visibility">-</span> km</div>
+      </div>
+    </div>
+
+    <div class="travel-planner">
+      <h2>Planning to go out?</h2>
+      <div class="date-time-inputs">
+        <input type="date" id="visitDate" />
+        <input type="time" id="visitTime" />
+      </div>
+      <button class="check-btn" onclick="checkIfSafeToGo()">Check If Safe</button>
+      <div id="recommendation">Select date & time above</div>
+    </div>
+
+    <div class="forecast-section"><h2>24-Hour Forecast</h2><div id="hourlyForecast" class="hourly-forecast"></div></div>
+    <div class="forecast-section"><h2>5-Day Forecast</h2><div id="dailyForecast" class="daily-forecast"></div></div>
+
+    <!-- WhatsApp Share -->
+    <button onclick="shareWeather()" class="check-btn" style="background:#25D366;margin:30px auto 10px;display:block;">
+      WhatsApp Share
+    </button>
+
+    <!-- NEW FEATURE BUTTONS -->
+    <button onclick="speakWeather()" class="check-btn" style="background:#ff6b6b;margin:15px auto 10px;display:block;">
+      Voice Summary
+    </button>
+
+    <button onclick="saveCurrentLocation()" class="check-btn" style="background:#51cf66;margin:10px auto;display:block;">
+      Save as Favorite
+    </button>
+
+    <button onclick="showFavorites()" class="check-btn" style="background:#339af0;margin:10px auto 20px;display:block;">
+      My Favorite Cities
+    </button>
+
+    <div style="text-align:center;margin:20px 0 10px;opacity:0.8;font-size:14px;">
+      Made with Love by <strong>You</strong> • Kalyan
+    </div>
+  </div>
+
+  <div class="weather-bg">
+    <div class="cloud"></div><div class="cloud"></div><div class="cloud"></div><div class="cloud"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
